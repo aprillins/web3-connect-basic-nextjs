@@ -1,6 +1,13 @@
+// https://medium.com/@kirankumar_gonti/web3-wallets-connection-using-walletconnect-in-next-js-ee9eb97d73c4
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+
+import WagmiProviderComp from "@/lib/wagmi-provider";
+import { headers } from "next/headers";
+import { cookieToInitialState } from "wagmi";
+import { config } from "@/lib/config";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,12 +30,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const initialState = cookieToInitialState(config, headers().get("cookie"));
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <WagmiProviderComp initialState={initialState}>
+          {children}
+        </WagmiProviderComp>
       </body>
     </html>
   );
