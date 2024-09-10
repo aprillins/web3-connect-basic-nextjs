@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+This is just an implementation of [Kiran Kumar Web3 Wallet Connection Tutorial](https://medium.com/@kirankumar_gonti/web3-wallets-connection-using-walletconnect-in-next-js-ee9eb97d73c4) using next.js
+
+I use node v22.7.0.
 
 ## Getting Started
 
